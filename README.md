@@ -187,7 +187,7 @@ markdown-tool/
 │   └── diagrams/           # Mermaid 渲染 PNG（build artifact）
 │
 ├── .github/workflows/
-│   └── ci.yml              # GitHub Actions CI（Node 18, 20)
+│   └── ci.yml              # GitHub Actions CI（Node 18 gate + Node 20 compatibility）
 │
 ├── package.json
 ├── .gitignore

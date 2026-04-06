@@ -94,24 +94,28 @@ function renderDiagram(options) {
 
   const tempInput = path.join(diagramsDir, `.temp-${index}.mmd`);
   const outputFile = path.join(diagramsDir, `diagram-${index}.${imageFormat}`);
+  const puppeteerConfigFile = path.resolve(__dirname, '../../puppeteer.config.json');
 
   fs.writeFileSync(tempInput, code, 'utf-8');
 
   try {
     const result = runCommand(
       getNpxCommand(),
-      ['mmdc', '-i', tempInput, '-o', outputFile, '--backgroundColor', bgColor, '--width', String(imageWidth)],
+      ['mmdc', '-i', tempInput, '-o', outputFile, '--backgroundColor', bgColor, '--width', String(imageWidth), '-p', puppeteerConfigFile],
       { stdio: 'pipe', shell: process.platform === 'win32' }
     );
     if (result.error || result.status !== 0) {
       if (result.error) throw result.error;
-      throw new Error((result.stderr || '').toString().trim() || `mmdc exited with code ${result.status}`);
+      const stderr = (result.stderr || '').toString().trim();
+      const stdout = (result.stdout || '').toString().trim();
+      const details = [stderr, stdout].filter(Boolean).join('\n');
+      throw new Error(details || `mmdc exited with code ${result.status}`);
     }
     logger.log(`  ✅ diagram-${index}.${imageFormat}`);
     return path.basename(outputFile);
   } catch (err) {
     logger.error(`  ❌ diagram-${index} 渲染失敗：${err.message}`);
-    return null;
+    throw new Error(`diagram-${index} 渲染失敗：${err.message}`);
   } finally {
     if (fs.existsSync(tempInput)) fs.unlinkSync(tempInput);
   }
@@ -191,12 +195,14 @@ function preprocessMermaid(options) {
       bgColor,
       logger,
     });
-    if (!renderedFileName) return null;
     const normalizedPrefix = imagePathPrefix.replace(/\\/g, '/').replace(/\/$/, '');
     return `${normalizedPrefix}/${renderedFileName}`;
   });
 
   const rendered = imagePaths.filter(Boolean).length;
+  if (rendered !== blocks.length) {
+    throw new Error(`Mermaid 渲染不完整：${rendered}/${blocks.length}`);
+  }
   const processed = replaceMermaidBlocksWithImages(rawContent, imagePaths);
 
   fs.writeFileSync(output, processed, 'utf-8');
