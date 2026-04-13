@@ -149,7 +149,7 @@ function main(argv) {
     maybeBreakpoint('build-cli:before-pdf');
     run(
       getNpxCommand(),
-      ['marp', tempMd, '-o', `${outputDir}/${stem}.pdf`, '--allow-local-files', '--no-stdin'],
+      ['marp', tempMd, '-o', `${outputDir}/${stem}.pdf`, '--allow-local-files', '--html', '--no-stdin'],
       `PDF  → ${outputDir}/${stem}.pdf`
     );
   }
@@ -158,7 +158,7 @@ function main(argv) {
     maybeBreakpoint('build-cli:before-pptx');
     run(
       getNpxCommand(),
-      ['marp', tempMd, '-o', `${outputDir}/${stem}.pptx`, '--allow-local-files', '--no-stdin'],
+      ['marp', tempMd, '-o', `${outputDir}/${stem}.pptx`, '--allow-local-files', '--html', '--no-stdin'],
       `PPTX → ${outputDir}/${stem}.pptx`
     );
   }
