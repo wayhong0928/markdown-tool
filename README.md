@@ -2,21 +2,21 @@
 
 > 以 Markdown 為單一來源，一鍵輸出 HTML、PDF、PPTX — 支援 Mermaid 圖表、自訂 CSS 注入、CJK 中文字型
 
-本工具實踐「**內容與呈現分離 (Decouple Content and Rendering)**」的核心理念：你只需維護一份 Markdown，即可自動產生三種格式的文件。
+![alt text](image.png)
 
 ---
 
 ## Features
 
-| 功能 | v1 | v2（當前） |
-| --- | :---: | :---: |
-| Markdown → HTML 投影片（Marp slide deck） | ✅ | ✅ |
-| Markdown → PDF (16:9 簡報) | ✅ | ✅ |
-| Markdown → PPTX (可編輯簡報) | ✅ | ✅ |
-| YAML front matter 樣式萃取與注入 | ✅ | ✅ |
-| **指定任意檔案路徑轉檔** | ❌ | ✅ |
-| **Mermaid 圖表渲染** | ❌ | ✅ |
-| CJK 中文字型支援 | ✅ | ✅ |
+| 功能                                      | v1  | v2（當前） |
+| ----------------------------------------- | :-: | :--------: |
+| Markdown → HTML 投影片（Marp slide deck） | ✅  |     ✅     |
+| Markdown → PDF (16:9 簡報)                | ✅  |     ✅     |
+| Markdown → PPTX (可編輯簡報)              | ✅  |     ✅     |
+| YAML front matter 樣式萃取與注入          | ✅  |     ✅     |
+| **指定任意檔案路徑轉檔**                  | ❌  |     ✅     |
+| **Mermaid 圖表渲染**                      | ❌  |     ✅     |
+| CJK 中文字型支援                          | ✅  |     ✅     |
 
 ---
 
@@ -44,10 +44,10 @@ node src/cli/build-cli.js data/slides.md
 
 ### 系統需求
 
-| 軟體 | 版本 | 驗證指令 |
-| --- | --- | --- |
+| 軟體    | 版本     | 驗證指令  |
+| ------- | -------- | --------- |
 | Node.js | v18.0.0+ | `node -v` |
-| npm | v9.0.0+ | `npm -v` |
+| npm     | v9.0.0+  | `npm -v`  |
 
 ### Linux / macOS 額外依賴
 
@@ -70,10 +70,10 @@ brew install --cask font-noto-sans-cjk
 npm install
 ```
 
-| 套件 | 版本 | 用途 |
-| --- | --- | --- |
-| `@marp-team/marp-cli` | ^4.2.3 | Markdown → PDF / PPTX |
-| `@mermaid-js/mermaid-cli` | ^10.9.1 | Mermaid 圖表 → PNG |
+| 套件                      | 版本    | 用途                  |
+| ------------------------- | ------- | --------------------- |
+| `@marp-team/marp-cli`     | ^4.2.3  | Markdown → PDF / PPTX |
+| `@mermaid-js/mermaid-cli` | ^10.9.1 | Mermaid 圖表 → PNG    |
 
 ---
 
@@ -102,12 +102,12 @@ npm run clean
 
 ### Options
 
-| 參數 | 說明 | 預設值 |
-| --- | --- | --- |
-| `--out, -o <dir>` | 輸出目錄 | `output` |
-| `--stem, -s <name>` | 輸出檔名主幹 | 取自輸入檔名 |
-| `--format <list>` | 輸出格式（逗號分隔：`html,pdf,pptx`） | `html,pdf,pptx` |
-| `--help, -h` | 顯示說明 | — |
+| 參數                | 說明                                  | 預設值          |
+| ------------------- | ------------------------------------- | --------------- |
+| `--out, -o <dir>`   | 輸出目錄                              | `output`        |
+| `--stem, -s <name>` | 輸出檔名主幹                          | 取自輸入檔名    |
+| `--format <list>`   | 輸出格式（逗號分隔：`html,pdf,pptx`） | `html,pdf,pptx` |
+| `--help, -h`        | 顯示說明                              | —               |
 
 ### npm scripts 捷徑
 
@@ -128,7 +128,7 @@ npm run audit:prod
 
 ### 建置流程（v2.0）
 
-```text
+````text
 <input.md>  (例：data/slides.md)
     │
     ▼
@@ -153,7 +153,7 @@ npm run audit:prod
     │
     ▼
 清除 ._temp_render.md ✓
-```
+````
 
 ---
 
