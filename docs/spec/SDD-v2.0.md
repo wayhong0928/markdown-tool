@@ -1,6 +1,6 @@
 # SDD v2.0：Mermaid 支援 + 任意路徑輸入
 
-> 本文件記錄 markdown-tool v2.0 的系統設計，內容已對齊目前實作（`src/cli/build-cli.js`、`src/steps/*`）。
+> 本文件記錄 md-to-slides v2.0 的系統設計，內容已對齊目前實作（`src/cli/build-cli.js`、`src/steps/*`）。
 
 ---
 

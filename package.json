@@ -1,5 +1,5 @@
 {
-  "name": "markdown-tool",
+  "name": "md-to-slides",
   "version": "2.0.0",
   "description": "Convert Markdown to HTML, PDF, and PPTX using Marp — with Mermaid support, custom CSS injection, and CJK support.",
   "engines": {

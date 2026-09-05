@@ -1,4 +1,4 @@
-# markdown-tool 專案化藍圖
+# md-to-slides 專案化藍圖
 
 > 文件狀態：v3.0 規劃草案（已依目前 v2.0 實作名稱校正）
 
@@ -52,7 +52,7 @@ src/
 ## 專案目錄與文件治理
 
 ```text
-markdown-tool/
+md-to-slides/
 ├─ src/
 ├─ tests/
 ├─ docs/

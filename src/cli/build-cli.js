@@ -42,7 +42,7 @@ function parseArgs(argv) {
 
 function printHelp() {
   console.log(`
-markdown-tool — Build CLI
+md-to-slides — Build CLI
 
 用法：
   node build.js [options] <input.md>
@@ -113,7 +113,7 @@ function main(argv) {
   if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
   console.log('╔═══════════════════════════════════════════╗');
-  console.log('║         markdown-tool  Build CLI          ║');
+  console.log('║          md-to-slides  Build CLI          ║');
   console.log('╚═══════════════════════════════════════════╝');
   console.log(`📥 輸入：${args.input}`);
   console.log(`📤 輸出：${outputDir}/${stem}.*`);

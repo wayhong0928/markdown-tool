@@ -3,7 +3,7 @@
 ## 目錄結構
 
 ```
-markdown-tool/
+md-to-slides/
 ├── src/                      # 核心模組（生產程式碼）
 │   ├── cli/
 │   │   └── build-cli.js      # CLI 入口 - 參數解析 + 建置流程編排

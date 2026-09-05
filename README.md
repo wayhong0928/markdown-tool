@@ -1,4 +1,4 @@
-# markdown-tool
+# md-to-slides
 
 > 以 Markdown 為單一來源，一鍵輸出 HTML、PDF、PPTX — 支援 Mermaid 圖表、自訂 CSS 注入、CJK 中文字型
 
@@ -160,7 +160,7 @@ npm run audit:prod
 ## Project Structure
 
 ```text
-markdown-tool/
+md-to-slides/
 ├── src/
 │   ├── cli/
 │   │   └── build-cli.js           # 統一 CLI 入口 (v2.0)
